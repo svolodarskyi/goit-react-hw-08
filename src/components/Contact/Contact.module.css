@@ -1,0 +1,46 @@
+.contactWrapper {
+  --border-contact: 1px solid rgb(221, 219, 219);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10px 10px;
+  background: #fff;
+  border-bottom: var(--border-contact);
+  border-right: var(--border-contact);
+  border-left: var(--border-contact);
+}
+
+.contactWrapper:nth-child(1) {
+  border-top: var(--border-contact);
+}
+
+.contactName {
+  margin-bottom: 7px;
+  font-size: 1.2rem;
+}
+.contactPhone {
+  color: #c9c7c7;
+  font-size: 1rem;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.deleteButton {
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #ee4343;
+}
+.deleteButton:hover {
+  background-color: #d13f3f;
+}
+
+.deleteButtonIcon {
+  color: #fff;
+  font-size: 1.4rem;
+  transition: background-color 250ms linear;
+}
