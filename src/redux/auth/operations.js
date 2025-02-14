@@ -10,6 +10,10 @@ export const setAuthHeader = token => {
   goitApi.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
+const clearAuthHeader = () => {
+  axios.defaults.headers.common['Authorization'] = '';
+};
+
 export const registerThunk = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
@@ -46,6 +50,7 @@ export const logoutThunk = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const { data } = await goitApi.post('users/logout');
+      clearAuthHeader();
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

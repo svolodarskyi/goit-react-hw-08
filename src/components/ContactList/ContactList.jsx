@@ -4,7 +4,7 @@ import Contact from '../Contact/Contact';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { selectisError, selectisLoading } from '../../redux/contacts/selectors';
-import { selectFilteredContacts } from '../../redux/filters/selectors';
+import { selectFilteredContacts } from '../../redux/contacts/selectors';
 import { fetchContacts } from '../../redux/contacts/operations';
 import { useEffect } from 'react';
 

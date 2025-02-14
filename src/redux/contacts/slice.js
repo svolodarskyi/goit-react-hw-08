@@ -1,5 +1,6 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { addContact, deleteContact, fetchContacts } from './operations';
+import { logoutThunk } from '../auth/operations';
 
 const initialState = {
   items: [],
@@ -13,10 +14,20 @@ const slice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchContacts.fulfilled, (state, action) => {
-        console.log(action.payload);
         state.items = action.payload;
         state.loading = false;
         state.error = false;
+      })
+      .addCase(addContact.fulfilled, (state, action) => {
+        state.loading = false;
+        state.items.push(action.payload);
+      })
+      .addCase(deleteContact.fulfilled, (state, action) => {
+        state.items = state.items.filter(item => item.id !== action.payload.id);
+        state.loading = false;
+      })
+      .addCase(logoutThunk.fulfilled, (state, action) => {
+        return initialState;
       })
       .addMatcher(
         isAnyOf(

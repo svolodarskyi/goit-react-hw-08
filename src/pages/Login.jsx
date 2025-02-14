@@ -8,7 +8,6 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSubmit = (values, options) => {
-    console.log(values);
     options.resetForm();
     dispatch(loginThunk(values))
       // unwrap waits for the promise to resolve
